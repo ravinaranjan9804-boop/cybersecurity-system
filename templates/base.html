@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}CyberGuard{% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+    <a href="/">Dashboard</a>
+
+    <a href="/report">Report Incident</a>
+
+    <a href="/policies">Cybersecurity Policies</a>
+
+    <a href="/continuity">Business Continuity</a>
+
+    <a href="/recovery">Disaster Recovery</a>
+
+    <a href="/backups">Backups</a>
+
+    <a href="/reports">Reports</a>
+
+    <a href="/logout">Logout</a>
+
+</div>
+
+
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>
+            {% block heading %}
+            CyberGuard
+            {% endblock %}
+        </h1>
+
+        <span>
+            {{ session.get('username', 'Admin') }}
+        </span>
+
+    </div>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+</div>
+
+
+</body>
+
+</html>

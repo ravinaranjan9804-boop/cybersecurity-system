@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+Backup Management - CyberGuard
+{% endblock %}
+
+{% block heading %}
+Backup Management
+{% endblock %}
+
+{% block content %}
+
+<div class="section">
+
+    <a href="/backups/add"
+       class="dashboard-link">
+
+        + Add Backup Record
+
+    </a>
+
+
+    {% if backup_records %}
+
+
+        {% for backup in backup_records %}
+
+        <div class="policy-card">
+
+            <h3>
+                {{ backup['backup_name'] }}
+            </h3>
+
+            <p>
+                <strong>System:</strong>
+                {{ backup['system_name'] }}
+            </p>
+
+            <p>
+                <strong>Backup Type:</strong>
+                {{ backup['backup_type'] }}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                {{ backup['backup_location'] }}
+            </p>
+
+            <p>
+                <strong>Frequency:</strong>
+                {{ backup['frequency'] }}
+            </p>
+
+            <p>
+                <strong>Last Backup:</strong>
+                {{ backup['last_backup'] }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ backup['backup_status'] }}
+            </p>
+
+            <p>
+                <strong>Restore Test:</strong>
+                {{ backup['restore_test'] }}
+            </p>
+
+            <small>
+                Created: {{ backup['created_at'] }}
+            </small>
+
+            <br><br>
+
+            <a href="/backups/delete/{{ backup['id'] }}"
+               class="dashboard-link">
+
+                Delete
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <p>
+            No backup records added yet.
+        </p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

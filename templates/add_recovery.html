@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Disaster Recovery Plan</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+    <a href="/">Dashboard</a>
+
+    <a href="/report">
+        Report Incident
+    </a>
+
+    <a href="/policies">
+        Cybersecurity Policies
+    </a>
+
+    <a href="/continuity">
+        Business Continuity
+    </a>
+
+    <a href="/recovery">
+        Disaster Recovery
+    </a>
+
+    <a href="#">
+        Backups
+    </a>
+
+    <a href="#">
+        Reports
+    </a>
+
+</div>
+
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+
+    <div class="topbar">
+
+        <h1>Add Disaster Recovery Plan</h1>
+
+    </div>
+
+
+
+    <div class="section">
+
+
+        <form method="POST">
+
+
+            <!-- SYSTEM -->
+
+            <label>
+                System / Application Name
+            </label>
+
+            <input
+                type="text"
+                name="system_name"
+                placeholder="Example: Customer Database"
+                required
+            >
+
+
+
+            <!-- RTO -->
+
+            <label>
+                Recovery Time Objective (RTO)
+            </label>
+
+            <input
+                type="text"
+                name="rto"
+                placeholder="Example: 4 hours"
+                required
+            >
+
+
+
+            <!-- RPO -->
+
+            <label>
+                Recovery Point Objective (RPO)
+            </label>
+
+            <input
+                type="text"
+                name="rpo"
+                placeholder="Example: 1 hour"
+                required
+            >
+
+
+
+            <!-- BACKUP LOCATION -->
+
+            <label>
+                Backup Location
+            </label>
+
+            <input
+                type="text"
+                name="backup_location"
+                placeholder="Example: Cloud Storage / External Drive"
+                required
+            >
+
+
+
+            <!-- RECOVERY PROCEDURE -->
+
+            <label>
+                Recovery Procedure
+            </label>
+
+            <textarea
+                name="recovery_procedure"
+                rows="7"
+                placeholder="Describe the steps required to restore this system..."
+                required
+            ></textarea>
+
+
+
+            <!-- STATUS -->
+
+            <label>
+                Recovery Status
+            </label>
+
+            <select
+                name="recovery_status"
+                required
+            >
+
+                <option value="">
+                    Select status
+                </option>
+
+                <option value="Ready">
+                    Ready
+                </option>
+
+                <option value="Testing">
+                    Testing
+                </option>
+
+                <option value="Needs Review">
+                    Needs Review
+                </option>
+
+                <option value="Not Ready">
+                    Not Ready
+                </option>
+
+            </select>
+
+
+
+            <!-- LAST TESTED -->
+
+            <label>
+                Last Recovery Test
+            </label>
+
+            <input
+                type="date"
+                name="last_tested"
+                required
+            >
+
+
+
+            <br>
+
+
+            <button type="submit">
+
+                Save Recovery Plan
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="window.location.href='/recovery'"
+            >
+
+                Cancel
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

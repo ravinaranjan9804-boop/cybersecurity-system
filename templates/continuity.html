@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+Business Continuity - CyberGuard
+{% endblock %}
+
+{% block heading %}
+Business Continuity
+{% endblock %}
+
+{% block content %}
+
+<div class="section">
+
+    <a href="/continuity/add"
+       class="dashboard-link">
+
+        + Add Continuity Plan
+
+    </a>
+
+
+    {% if continuity_plans %}
+
+
+        {% for plan in continuity_plans %}
+
+        <div class="policy-card">
+
+            <h3>
+                {{ plan['business_function'] }}
+            </h3>
+
+            <p>
+                <strong>Priority:</strong>
+                {{ plan['priority'] }}
+            </p>
+
+            <p>
+                <strong>Maximum Downtime:</strong>
+                {{ plan['max_downtime'] }}
+            </p>
+
+            <p>
+                <strong>Recovery Procedure:</strong>
+                {{ plan['recovery_procedure'] }}
+            </p>
+
+            <small>
+                Created: {{ plan['created_at'] }}
+            </small>
+
+            <br><br>
+
+            <a href="/continuity/delete/{{ plan['id'] }}"
+               class="dashboard-link">
+
+                Delete
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <p>
+            No business continuity plans added yet.
+        </p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

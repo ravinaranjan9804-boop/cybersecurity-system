@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Business Continuity Plan</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+    <a href="/">Dashboard</a>
+
+    <a href="/report">Report Incident</a>
+
+    <a href="/policies">
+        Cybersecurity Policies
+    </a>
+
+    <a href="/continuity">
+        Business Continuity
+    </a>
+
+    <a href="#">
+        Disaster Recovery
+    </a>
+
+    <a href="#">
+        Backups
+    </a>
+
+</div>
+
+
+
+<div class="main">
+
+
+    <div class="topbar">
+
+        <h1>Add Business Continuity Plan</h1>
+
+    </div>
+
+
+
+    <div class="section">
+
+
+        <form method="POST">
+
+
+            <label>
+                Business Function
+            </label>
+
+            <input
+                type="text"
+                name="business_function"
+                placeholder="Example: Customer Communication"
+                required
+            >
+
+
+
+            <label>
+                Priority
+            </label>
+
+            <select
+                name="priority"
+                required
+            >
+
+                <option value="">
+                    Select priority
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+            </select>
+
+
+
+            <label>
+                Maximum Acceptable Downtime
+            </label>
+
+            <input
+                type="text"
+                name="max_downtime"
+                placeholder="Example: 4 hours"
+                required
+            >
+
+
+
+            <label>
+                Recovery Procedure
+            </label>
+
+            <textarea
+                name="recovery_procedure"
+                rows="7"
+                placeholder="Describe how this business function will be restored..."
+                required
+            ></textarea>
+
+
+
+            <button type="submit">
+
+                Save Plan
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="window.location.href='/continuity'"
+            >
+
+                Cancel
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

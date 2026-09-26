@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Cybersecurity Policy - CyberGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+    <a href="/">Dashboard</a>
+
+    <a href="/report">Report Incident</a>
+
+    <a href="/policies">Cybersecurity Policies</a>
+
+    <a href="#">Business Continuity</a>
+
+    <a href="#">Disaster Recovery</a>
+
+    <a href="#">Backups</a>
+
+    <a href="#">Reports</a>
+
+</div>
+
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+
+    <div class="topbar">
+
+        <h1>Add Cybersecurity Policy</h1>
+
+    </div>
+
+
+
+    <div class="section">
+
+
+        <form method="POST">
+
+
+            <label>
+                Policy Title
+            </label>
+
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Example: Password Security Policy"
+                required
+            >
+
+
+            <label>
+                Policy Description
+            </label>
+
+
+            <textarea
+                name="description"
+                rows="8"
+                placeholder="Enter the cybersecurity policy..."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+
+                Save Policy
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="window.location.href='/policies'"
+            >
+
+                Cancel
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

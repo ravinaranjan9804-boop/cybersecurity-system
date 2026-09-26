@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cybersecurity Policies - CyberGuard
+{% endblock %}
+
+{% block heading %}
+Cybersecurity Policies
+{% endblock %}
+
+{% block content %}
+
+<div class="section">
+
+    <a href="/policies/add"
+       class="dashboard-link">
+
+        + Add Policy
+
+    </a>
+
+
+    {% if policies %}
+
+
+        {% for policy in policies %}
+
+        <div class="policy-card">
+
+            <h3>
+                {{ policy['title'] }}
+            </h3>
+
+            <p>
+                {{ policy['description'] }}
+            </p>
+
+            <small>
+                Created: {{ policy['created_at'] }}
+            </small>
+
+            <br><br>
+
+            <a href="/policies/delete/{{ policy['id'] }}"
+               class="dashboard-link">
+
+                Delete
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <p>
+            No cybersecurity policies added yet.
+        </p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

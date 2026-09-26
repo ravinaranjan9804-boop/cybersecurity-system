@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Incident Details</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+    <a href="/">Dashboard</a>
+
+    <a href="/report">Report Incident</a>
+
+    <a href="#">Cybersecurity Policies</a>
+
+    <a href="#">Business Continuity</a>
+
+    <a href="#">Disaster Recovery</a>
+
+    <a href="#">Backups</a>
+
+    <a href="#">Reports</a>
+
+</div>
+
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>Incident Details</h1>
+
+    </div>
+
+
+    <div class="section">
+
+
+        <h2>
+            Incident #{{ incident['id'] }}
+        </h2>
+
+
+        <br>
+
+
+        <p>
+            <strong>Incident Type:</strong>
+
+            {{ incident['incident_type'] }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+            <strong>Description:</strong>
+
+            {{ incident['description'] }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+            <strong>Severity:</strong>
+
+            {{ incident['severity'] }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+            <strong>Reported By:</strong>
+
+            {{ incident['reported_by'] }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+            <strong>Reported At:</strong>
+
+            {{ incident['created_at'] }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+            <strong>Current Status:</strong>
+
+            {{ incident['status'] }}
+
+        </p>
+
+
+        <hr>
+
+
+        <h2>Update Incident Status</h2>
+
+
+        <form
+            method="POST"
+            action="/incident/{{ incident['id'] }}/update"
+        >
+
+
+            <label>Status</label>
+
+
+            <select name="status" required>
+
+                <option
+                    value="Reported"
+                    {% if incident['status'] == 'Reported' %}
+                    selected
+                    {% endif %}
+                >
+                    Reported
+                </option>
+
+
+                <option
+                    value="Investigating"
+                    {% if incident['status'] == 'Investigating' %}
+                    selected
+                    {% endif %}
+                >
+                    Investigating
+                </option>
+
+
+                <option
+                    value="Contained"
+                    {% if incident['status'] == 'Contained' %}
+                    selected
+                    {% endif %}
+                >
+                    Contained
+                </option>
+
+
+                <option
+                    value="Resolved"
+                    {% if incident['status'] == 'Resolved' %}
+                    selected
+                    {% endif %}
+                >
+                    Resolved
+                </option>
+
+
+                <option
+                    value="Closed"
+                    {% if incident['status'] == 'Closed' %}
+                    selected
+                    {% endif %}
+                >
+                    Closed
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+
+                Update Status
+
+            </button>
+
+
+        </form>
+
+
+        <br>
+
+
+        <button
+            onclick="window.location.href='/'"
+        >
+
+            Back to Dashboard
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

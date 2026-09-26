@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Backup - CyberGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+    <a href="/">Dashboard</a>
+
+    <a href="/report">Report Incident</a>
+
+    <a href="/policies">
+        Cybersecurity Policies
+    </a>
+
+    <a href="/continuity">
+        Business Continuity
+    </a>
+
+    <a href="/recovery">
+        Disaster Recovery
+    </a>
+
+    <a href="/backups">
+        Backups
+    </a>
+
+</div>
+
+
+
+<div class="main">
+
+
+    <div class="topbar">
+
+        <h1>Add Backup Record</h1>
+
+    </div>
+
+
+
+    <div class="section">
+
+
+        <form method="POST">
+
+
+            <label>
+                Backup Name
+            </label>
+
+            <input
+                type="text"
+                name="backup_name"
+                placeholder="Example: Daily Customer Database Backup"
+                required
+            >
+
+
+            <label>
+                System Name
+            </label>
+
+            <input
+                type="text"
+                name="system_name"
+                placeholder="Example: Customer Database"
+                required
+            >
+
+
+            <label>
+                Backup Type
+            </label>
+
+            <select
+                name="backup_type"
+                required
+            >
+
+                <option value="">
+                    Select backup type
+                </option>
+
+                <option value="Full">
+                    Full
+                </option>
+
+                <option value="Incremental">
+                    Incremental
+                </option>
+
+                <option value="Differential">
+                    Differential
+                </option>
+
+            </select>
+
+
+            <label>
+                Backup Location
+            </label>
+
+            <input
+                type="text"
+                name="backup_location"
+                placeholder="Example: Cloud Storage"
+                required
+            >
+
+
+            <label>
+                Backup Frequency
+            </label>
+
+            <select
+                name="frequency"
+                required
+            >
+
+                <option value="">
+                    Select frequency
+                </option>
+
+                <option value="Hourly">
+                    Hourly
+                </option>
+
+                <option value="Daily">
+                    Daily
+                </option>
+
+                <option value="Weekly">
+                    Weekly
+                </option>
+
+                <option value="Monthly">
+                    Monthly
+                </option>
+
+            </select>
+
+
+            <label>
+                Last Backup Date
+            </label>
+
+            <input
+                type="date"
+                name="last_backup"
+                required
+            >
+
+
+            <label>
+                Backup Status
+            </label>
+
+            <select
+                name="backup_status"
+                required
+            >
+
+                <option value="">
+                    Select status
+                </option>
+
+                <option value="Healthy">
+                    Healthy
+                </option>
+
+                <option value="Warning">
+                    Warning
+                </option>
+
+                <option value="Failed">
+                    Failed
+                </option>
+
+            </select>
+
+
+            <label>
+                Restore Test
+            </label>
+
+            <select
+                name="restore_test"
+                required
+            >
+
+                <option value="">
+                    Select result
+                </option>
+
+                <option value="Passed">
+                    Passed
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="Failed">
+                    Failed
+                </option>
+
+            </select>
+
+
+            <br>
+
+
+            <button type="submit">
+
+                Save Backup
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="window.location.href='/backups'"
+            >
+
+                Cancel
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

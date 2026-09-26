@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CyberGuard - Security Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>CyberGuard</h2>
+
+
+    <a href="/">
+        Dashboard
+    </a>
+
+
+    <a href="/report">
+        Report Incident
+    </a>
+
+
+    <a href="/policies">
+        Cybersecurity Policies
+    </a>
+
+
+    <a href="/continuity">
+        Business Continuity
+    </a>
+
+
+    <a href="/recovery">
+        Disaster Recovery
+    </a>
+
+
+    <a href="/backups">
+        Backups
+    </a>
+
+
+    <a href="/reports">
+        Reports
+    </a>
+
+
+    <a href="/logout">
+        Logout
+    </a>
+
+</div>
+
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+
+    <div class="topbar">
+
+        <h1>
+            Security Dashboard
+        </h1>
+
+        <span>
+            Admin
+        </span>
+
+    </div>
+
+
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>
+                Security Score
+            </h3>
+
+            <p class="number">
+                82%
+            </p>
+
+            <span>
+                Good
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Open Incidents
+            </h3>
+
+            <p class="number">
+                {{ open_incidents }}
+            </p>
+
+            <span>
+                Needs attention
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Critical Incidents
+            </h3>
+
+            <p class="number">
+                {{ critical_incidents }}
+            </p>
+
+            <span>
+                High priority
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Backup Status
+            </h3>
+
+            <p class="number">
+                ✓
+            </p>
+
+            <span>
+                Healthy
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="section">
+
+        <h2>
+            Quick Actions
+        </h2>
+
+
+        <div class="actions">
+
+
+            <a href="/report"
+               class="dashboard-link">
+
+                Report Incident
+
+            </a>
+
+
+            <a href="/policies"
+               class="dashboard-link">
+
+                View Policies
+
+            </a>
+
+
+            <a href="/continuity"
+               class="dashboard-link">
+
+                Business Continuity
+
+            </a>
+
+
+            <a href="/recovery"
+               class="dashboard-link">
+
+                Disaster Recovery
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- INCIDENTS -->
+
+    <div class="section">
+
+        <h2>
+            Recent Security Incidents
+        </h2>
+
+
+        <table>
+
+
+            <tr>
+
+                <th>
+                    ID
+                </th>
+
+                <th>
+                    Incident
+                </th>
+
+                <th>
+                    Severity
+                </th>
+
+                <th>
+                    Status
+                </th>
+
+            </tr>
+
+
+            {% for incident in incidents %}
+
+
+            <tr>
+
+                <td>
+                    #{{ incident['id'] }}
+                </td>
+
+
+                <td>
+
+                    <a href="/incident/{{ incident['id'] }}">
+
+                        {{ incident['incident_type'] }}
+
+                    </a>
+
+                </td>
+
+
+                <td>
+                    {{ incident['severity'] }}
+                </td>
+
+
+                <td>
+                    {{ incident['status'] }}
+                </td>
+
+            </tr>
+
+
+            {% else %}
+
+
+            <tr>
+
+                <td colspan="4">
+
+                    No security incidents reported yet.
+
+                </td>
+
+            </tr>
+
+
+            {% endfor %}
+
+
+        </table>
+
+    </div>
+
+
+
+    <!-- SECURITY MODULES -->
+
+    <div class="section">
+
+        <h2>
+            Security & Recovery Modules
+        </h2>
+
+
+        <div class="actions">
+
+
+            <a href="/policies"
+               class="dashboard-link">
+
+                Cybersecurity Policies
+
+            </a>
+
+
+            <a href="/continuity"
+               class="dashboard-link">
+
+                Business Continuity
+
+            </a>
+
+
+            <a href="/recovery"
+               class="dashboard-link">
+
+                Disaster Recovery
+
+            </a>
+
+
+            <a href="/backups"
+               class="dashboard-link">
+
+                Backup Management
+
+            </a>
+
+
+            <a href="/reports"
+               class="dashboard-link">
+
+                Security Reports
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

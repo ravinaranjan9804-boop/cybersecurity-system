@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disaster Recovery - CyberGuard
+{% endblock %}
+
+{% block heading %}
+Disaster Recovery
+{% endblock %}
+
+{% block content %}
+
+<div class="section">
+
+    <a href="/recovery/add"
+       class="dashboard-link">
+
+        + Add Recovery Plan
+
+    </a>
+
+
+    {% if recovery_plans %}
+
+
+        {% for plan in recovery_plans %}
+
+        <div class="policy-card">
+
+            <h3>
+                {{ plan['system_name'] }}
+            </h3>
+
+            <p>
+                <strong>RTO:</strong>
+                {{ plan['rto'] }}
+            </p>
+
+            <p>
+                <strong>RPO:</strong>
+                {{ plan['rpo'] }}
+            </p>
+
+            <p>
+                <strong>Backup Location:</strong>
+                {{ plan['backup_location'] }}
+            </p>
+
+            <p>
+                <strong>Recovery Procedure:</strong>
+                {{ plan['recovery_procedure'] }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ plan['recovery_status'] }}
+            </p>
+
+            <p>
+                <strong>Last Tested:</strong>
+                {{ plan['last_tested'] }}
+            </p>
+
+            <br>
+
+            <a href="/recovery/delete/{{ plan['id'] }}"
+               class="dashboard-link">
+
+                Delete
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <p>
+            No disaster recovery plans added yet.
+        </p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

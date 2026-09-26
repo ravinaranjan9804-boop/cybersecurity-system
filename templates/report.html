@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Security Reports - CyberGuard
+{% endblock %}
+
+
+{% block heading %}
+Security Reports
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="section">
+
+    <h2>Incident Overview</h2>
+
+
+    <div class="report-grid">
+
+
+        <div class="report-card">
+
+            <h3>Total Incidents</h3>
+
+            <div class="report-number">
+                {{ total_incidents }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>Critical</h3>
+
+            <div class="report-number">
+                {{ critical_incidents }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>High</h3>
+
+            <div class="report-number">
+                {{ high_incidents }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>Medium</h3>
+
+            <div class="report-number">
+                {{ medium_incidents }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>Low</h3>
+
+            <div class="report-number">
+                {{ low_incidents }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>Open</h3>
+
+            <div class="report-number">
+                {{ open_incidents }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>Resolved / Closed</h3>
+
+            <div class="report-number">
+                {{ resolved_incidents }}
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<div class="risk-box">
+
+    <h2>
+        Overall Security Risk
+    </h2>
+
+
+    <div class="risk-number">
+
+        {{ risk_score }}
+
+    </div>
+
+
+    <div class="risk-level">
+
+        {{ risk_level }}
+
+    </div>
+
+
+    <p>
+        Risk score is calculated from
+        incident severity and backup failures.
+    </p>
+
+</div>
+
+
+
+<div class="section">
+
+    <h2>
+        Security & Recovery Status
+    </h2>
+
+
+    <table class="report-table">
+
+
+        <tr>
+
+            <th>
+                Module
+            </th>
+
+            <th>
+                Total Records
+            </th>
+
+            <th>
+                Status
+            </th>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Cybersecurity Policies
+            </td>
+
+            <td>
+                {{ total_policies }}
+            </td>
+
+            <td>
+                Active
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Business Continuity
+            </td>
+
+            <td>
+                {{ total_continuity }}
+            </td>
+
+            <td>
+                Active
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Disaster Recovery
+            </td>
+
+            <td>
+                {{ total_recovery }}
+            </td>
+
+            <td>
+                Active
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Backup Management
+            </td>
+
+            <td>
+                {{ total_backups }}
+            </td>
+
+            <td>
+                Active
+            </td>
+
+        </tr>
+
+
+    </table>
+
+</div>
+
+
+
+<div class="section">
+
+    <h2>
+        Backup Health
+    </h2>
+
+
+    <div class="report-grid">
+
+
+        <div class="report-card">
+
+            <h3>
+                Total Backups
+            </h3>
+
+            <div class="report-number">
+                {{ total_backups }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>
+                Failed Backups
+            </h3>
+
+            <div class="report-number">
+                {{ failed_backups }}
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h3>
+                Failed Restore Tests
+            </h3>
+
+            <div class="report-number">
+                {{ failed_restore_tests }}
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}
